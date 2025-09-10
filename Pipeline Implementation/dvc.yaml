@@ -1,0 +1,18 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess_script.py --input data/raw.csv --output data/preprocessed.csv
+    deps:
+      - src/preprocess.py
+      - data/raw.csv
+    outs:
+      - data/preprocessed.csv
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - src/models/registry.py
+      - data/preprocessed.csv
+    outs:
+      - model.joblib
+    metrics:
+      - metrics.json

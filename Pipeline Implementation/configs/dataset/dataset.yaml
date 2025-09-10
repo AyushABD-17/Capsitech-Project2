@@ -1,0 +1,4 @@
+data:
+  path: "data/cal_housing.csv"
+  target: "target"
+  
